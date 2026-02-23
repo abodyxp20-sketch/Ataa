@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-arabic: 'Cairo', sans-serif;
+  --font-english: 'Inter', sans-serif;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 transition-colors duration-500;
+  font-family: var(--font-arabic);
+}
+
+.dark body {
+  @apply bg-slate-950 text-slate-50;
+}
+
+/* Improved Light/Dark Mode Contrast */
+.light body {
+  @apply bg-[#fcfdfe] text-[#1e293b]; /* Slightly darker text for contrast */
+}
+
+.dark body {
+  @apply bg-[#0f172a] text-[#f8fafc]; /* Deeper but soft dark blue */
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  @apply shadow-2xl;
+}
+
+.light .text-slate-500 {
+  color: #334155 !important;
+  font-weight: 600;
+}
+
+.light .text-slate-400 {
+  color: #475569 !important;
+  font-weight: 700;
+}
+
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+  @apply text-slate-900;
+}
+
+.light input, .light textarea, .light select {
+  @apply text-slate-900 placeholder:text-slate-400 border-slate-200;
+}
+
+/* Shake Animation for Errors */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.animate-shake { animation: shake 0.4s ease-in-out infinite; }
+
+/* Impact Details Charts Fixes */
+.recharts-cartesian-grid-horizontal line, 
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255,255,255,0.05);
+}
+
+.dark .recharts-text {
+  fill: #94a3b8 !important;
+}
+
+.light .recharts-text {
+  fill: #1e293b !important;
+}
+
+.recharts-responsive-container {
+  overflow: visible !important;
+}
+
+/* Honor Badges Hover & Animations */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.6); }
+}
+
+.badge-glow:hover {
+  animation: glow-pulse 2s infinite ease-in-out;
+}
+
+/* Bidi/RTL Fix for English text */
+[dir="rtl"] .en-text, 
+[dir="rtl"] [lang="en"] {
+  direction: ltr !important;
+  text-align: left !important;
+  display: inline-block;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .en-text::after {
+  content: "\200E";
+}
+
+
+/* Premium iOS 26 Interaction System */
+.tap-active {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease;
+}
+
+.tap-active:active {
+  transform: scale(0.94);
+  filter: brightness(0.9);
+}
+
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Glassmorphism Refinement */
+.glass {
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Scrollbar for Premium Feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.4);
+}
+
+/* Animated Mesh Gradient Backgrounds */
+.mesh-gradient {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(236, 72, 153, 0.05) 0px, transparent 50%);
+}
+
+.dark .mesh-gradient {
+  background-color: #0f172a;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
+}
+
+/* Squircle Mask Refinement */
+.squircle {
+  clip-path: url(#squircle-path);
+}
+
+.squircle-lg {
+  clip-path: url(#squircle-lg-path);
+}
+

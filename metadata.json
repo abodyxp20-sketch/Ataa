@@ -1,0 +1,8 @@
+{
+  "name": "عطاء - Ataa | منصة التبادل الذكي",
+  "description": "Elite iOS 26 Aesthetic AI Platform for School Resource Exchange. Arabic-First, Modern Typography, and Intelligent Moderation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
